@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @layer base {
+      :root {
+        @apply text-sm;
+        line-height: 1.6;
+      }
+
+      p {
+        @apply mb-2
+      }
+
+      button {
+        @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50
+      }
+      details {
+        @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 italic 
+      }
+      summary {
+        @apply py-1 text-base bg-slate-800 text-white
+      }
+
+      ol {
+        @apply list-decimal list-outside ml-6 mb-4
+      }
+      
+      kbd, code, a {
+        @apply text-blue-800
+      }
+
+      a {
+        @apply border-b-1 
+      }
+
+      input {
+        @apply border-1 px-2
+      }
+
+      hr {
+        @apply my-3
+      }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="imagenes/shopping-cart.svg" type="image/svg">
+  <title>🍅 Compras</title>
+</head>
+
+<body class="container w-5/6 m-auto container w-4/5 mx-auto  bg-linear-to-r from-cyan-200  to-cyan-50    ">
+  <h1 class="font-bold text-2xl mb-4">🍅 Lista de Compras</h1>
+  <details>
+  <summary>Enunciado</summary>
+  <ol>
+    <li>Agregar un botón que pregunte la posición y elimine el producto de la lista.<br>Para eliminar un elemento de la lista usar el método <code><mark>slice</mark></code> &#8674; <code>array.slice(posicion)</code>
+    </li>
+    <li>Agregar un botón para vaciar el carrito: <code>array = []</code></li>
+    <li>Reorganizar el código moviéndolo a un archivo .js y enlazándolo.</li>
+  </ol>
+  
+  </details>
+
+  <div class="flex mb-4">
+    <label class="flex-2 mr-1 text-green-700 font-bold" for="producto-input">Producto que deseas agregar:</label>
+    <!-- Input para el nombre del producto -->
+    <input class="flex-2 mr-5  border-solid border-cyan-900 border-2   text-green-800 font-bold " type="text" id="producto-input" placeholder="Ejemplo: Pan">
+    <!-- Botón con evento manual -->
+    <button class="flex-1 mx-1  border-solid text-green-700 font-bold  border-cyan-900 rounded-3xl border-2 cursor-pointer transition-all duration-500 ease-in-out   bg-linear-to-r from-cyan-400  to-cyan-200   hover:bg-linear-to-r hover:from-blue-500  hover:to-cyan-200 "
+    onclick="agregar()">Agregar</button>
+    <button class="flex-1 mx-1  border-solid  text-green-700 font-bold   border-cyan-900 rounded-3xl border-2 cursor-pointer transition-all duration-500 ease-in-out   bg-linear-to-r from-cyan-400  to-cyan-200   hover:bg-linear-to-r hover:from-blue-500  hover:to-cyan-200 "
+    onclick="quitar()">Quitar</button>
+    <button class="flex-1 mx-1  border-solid  text-green-700 font-bold    border-cyan-900 rounded-3xl border-2 cursor-pointer transition-all duration-500 ease-in-out   bg-linear-to-r from-cyan-400  to-cyan-200   hover:bg-linear-to-r hover:from-blue-500  hover:to-cyan-200 "
+    onclick="vaciar()">Vaciar</button>
+
+  </div>
+  <div class="flex">
+    <div class="flex-2 border-2 border-solid border-cyan-900 text-green-700 font-bold ">  
+      <!-- La lista donde se insertará el HTML -->
+      <ol class="pl-4"     start="0" id="lista-compras"></ol>
+
+    </div>
+    <div class="flex-2 text-center">
+      <img class="inline w-2/3" src="imagenes/shopping-cart.svg"  alt="carrito">
+      <p>
+        Número de productos en el carrito: 
+        <span class="font-bold text-red-700" id="num-prod">0</span>
+      </p>
+    </div>
+  </div>
+  <!-- Espacio para mensajes -->
+  <p class="italic" id="mensaje">&nbsp;</p>
+
+     <a class="text-green-600 font-bold no-underline"  href="index.html">INICIO</a> 
+
+    <script src="js/lista.js"></script>
+
+
+</body>
+
+</html>
